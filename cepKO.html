@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Gerador de CEP para Ecommerce Armazém PB</title>
+        <meta name="author" content="Time de i9" />
+        <meta name="keywords" content="Amazem, PB, i9, CEP" />
+        <meta name="description" content="Gerador de CEP para Ecommerce Armazém PB desenvolvido pelos front-ends do time de i9" />
+
+        <!-- Adicionando knockout -->
+        <script type="text/javascript" src="https://knockoutjs.com/downloads/knockout-3.5.1.debug.js"></script>   
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+    </head>
+
+    <body>
+        <form>
+            <div class="container">
+
+                    CEP 
+                    <input type="text" 
+                        data-bind="value: cep, 
+                        attr: {title: CepErrorMessage },
+                        event: {blur: ValidateCep}"
+                        placeholder="00000000" 
+                    />
+                <div class="error" data-bind="html: CepErrorMessage"></div>
+            </div>
+            <p>Logradouro: <input data-bind="value: logradouro"></p>
+            <p>Bairro:     <input data-bind="value: bairro" readonly></p>
+            <p>Cidade:     <input data-bind="value: cidade" readonly></p>
+            <p>Estado:     <input data-bind="value: uf" readonly></p>
+            <p>Número:     <input data-bind="value: numero"></p>
+            <p>Complemento:<input data-bind="value: complemento"></p>
+        </form>
+        <script type="text/javascript" src="myScript.js"></script>
+    </body>
+</html>
