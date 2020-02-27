@@ -1,36 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
-        <title>Gerador de CEP para Ecommerce Armazém PB</title>
-        <meta name="author" content="Time de i9" />
-        <meta name="keywords" content="Amazem, PB, i9, CEP" />
-        <meta name="description" content="Gerador de CEP para Ecommerce Armazém PB desenvolvido pelos front-ends do time de i9" />
+        <title>Preenche endereço por CEP - Knockout</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Cicero Marcelo" />
+        <meta name="keywords" content="CEP, knockout, preencher, endereço" />
+        <meta name="description" content="Codigo em Knockout que preenche o endereço automaticamente a partir do CEP indicado" />
 
         <!-- Adicionando knockout -->
         <script type="text/javascript" src="https://knockoutjs.com/downloads/knockout-3.5.1.debug.js"></script>   
         <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
-    <body>
-        <form>
-            <div class="container">
+    <body> 
+        <script type="text/javascript" src="myScript.js"></script>  
+        <div class="container">
+            <div class="row">
+                <form>
+                    <!-- -->
+                    <div class="colLabel">
+                        <label for="cepValue">CEP: </label>
+                    </div>
+                    <div class="colInput">
+                        <input type="text" id="cepValue" data-bind="value: cep, attr: {title: CepErrorMessage }, event: {blur: ValidateCep}" placeholder="00000-000"/>
+                        <div class="error" data-bind="html: CepErrorMessage"></div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="colLabel">
+                        <label for="ruaValue">Logradouro: </label>
+                    </div>
+                    <div class="colInput">
+                        <input type="text" id="ruaValue" data-bind="value: logradouro" readonly>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="colLabel">
+                        <label for="bairroValue">Bairro:     </label>
+                    </div>
+                    <div class="colInput">
+                        <input type="text" id="bairroValue" data-bind="value: bairro" readonly>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="colLabel">
+                        <label for="cidadeValue">Cidade:     </label>
+                    </div>
+                    <div class="colInput">
+                        <input type="text" id="cidadeValue" data-bind="value: cidade" readonly>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="colLabel">
+                        <label for="estadoValue">Estado:     </label>
+                    </div>
+                    <div class="colInput">
+                        <input type="text" id="estadoValue" data-bind="value: uf" readonly>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="colLabel">
+                        <label for="nroValue">Número:     </label>
+                    </div>
+                    <div class="colInput">
+                        <input type="text" id="nroValue" data-bind="value: numero">
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="colLabel">
+                        <label for="compValue">Complemento:</label>
+                    </div>
+                    <div class="colInput">
+                        <input type="text" id="compValue" data-bind="value: complemento">
+                    </div>
 
-                    CEP 
-                    <input type="text" 
-                        data-bind="value: cep, 
-                        attr: {title: CepErrorMessage },
-                        event: {blur: ValidateCep}"
-                        placeholder="00000000" 
-                    />
-                <div class="error" data-bind="html: CepErrorMessage"></div>
+                </form>
             </div>
-            <p>Logradouro: <input data-bind="value: logradouro"></p>
-            <p>Bairro:     <input data-bind="value: bairro" readonly></p>
-            <p>Cidade:     <input data-bind="value: cidade" readonly></p>
-            <p>Estado:     <input data-bind="value: uf" readonly></p>
-            <p>Número:     <input data-bind="value: numero"></p>
-            <p>Complemento:<input data-bind="value: complemento"></p>
-        </form>
-        <script type="text/javascript" src="myScript.js"></script>
+        </div>
     </body>
 </html>
